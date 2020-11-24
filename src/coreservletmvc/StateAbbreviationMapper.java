@@ -1,12 +1,6 @@
 package coreservletmvc;
 import java.util.*;
 
-/** Gives a concrete implementation of the interface that maps US state names (e.g., Maryland) to post office abbreviations (e.g., MD)
- *  
- *  From <a href="http://courses.coreservlets.com/Course-Materials/">the
- *  coreservlets.com tutorials on servlets, JSP, JSF 2.x, RESTful Web Services,
- *  Ajax, jQuery, GWT, Spring, Hibernate/JPA, Hadoop, and Java programming</a>.
- */
 
 public class StateAbbreviationMapper implements StateAbbreviationService {
   private Map<String,String> stateMap;
@@ -67,7 +61,6 @@ public class StateAbbreviationMapper implements StateAbbreviationService {
   
   public StateAbbreviationMapper() {
     stateMap = new HashMap<String,String>();
-    // Assumes state abbreviations are already in upper case
     for(String[] state: stateArray) {
       stateMap.put(state[0].toUpperCase(), state[1]);
     }

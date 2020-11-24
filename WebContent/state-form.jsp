@@ -13,11 +13,10 @@
 <p/>
 <fieldset>
 <legend>Mapping US State Names to Post Office Abbreviations</legend>
-<form action="show-abbreviation-2">
+<form action="show-abbreviation">
   Full state name: 
   <input type="text" NAME="state-name" value="${stateInfo2.stateName}"><br/>
-  <!-- Above is safe because the expression language outputs empty strings,
-       not null pointer exceptions, for missing beans. -->
+
   <input type="submit" value="Show Abbreviation"/>
 </form>
 </fieldset>
