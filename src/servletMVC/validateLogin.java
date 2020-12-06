@@ -4,32 +4,44 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
+import dbconnect.DBUtil;
 
 
-@WebServlet("/show-abbreviation")
+@WebServlet("/searchmysocial")
 public class validateLogin extends HttpServlet {
-  private StateAbbreviationService abbreviationMapper = new StateAbbreviationMapper();
+	
+	
+  private DBUtil SSNPasser = new DBUtil();
   
   @Override
   public void doGet(HttpServletRequest request,
                     HttpServletResponse response)
       throws ServletException, IOException {
-    String stateName = request.getParameter("state-name");
-    if (stateName == null) {
-      stateName = "";
+    String SSN = request.getParameter("SSN");
+    if (SSN == null) {
+    	SSN = "";
     }
-    stateName = stateName.trim();
-    String stateAbbreviation = abbreviationMapper.findAbbreviation(stateName);
-    StatePair stateInfo1 = new StatePair(stateName, stateAbbreviation);
-    HttpSession session = request.getSession(); // using session
-    session.setAttribute("stateInfo2", stateInfo1);
+    SSN = SSN.trim();
+    
+//    String stateAbbreviation = abbreviationMapper.FindSocial(SSN);
+    
+    String socialPasser = SSNPasser.FindSocial(SSN);
+
+    
+//    SocialSEC ssnInfo = new SocialSEC(SSN, stateAbbreviation);
+    SocialSEC ssnInfo = new SocialSEC(SSN);
+
+    
+    
+//    HttpSession session = request.getSession(); // using session
+//    session.setAttribute("ssnInfo2", ssnInfo);
     String address;
-    if (stateName.isEmpty()) {
+    if (SSN.isEmpty()) {
       address = "/WEB-INF/results/missing-state.jsp";
-    } else if (stateAbbreviation != null) {
-      address = "/WEB-INF/results/show-abbreviation.jsp";
+    } else if (socialPasser != null) {
+      address = "/WEB-INF/results/StudentFound.jsp";
     } else {
-      address = "/WEB-INF/results/unknown-state.jsp";
+      address = "/WEB-INF/results/StudentNotFound.jsp";
     }
     RequestDispatcher dispatcher =
       request.getRequestDispatcher(address);

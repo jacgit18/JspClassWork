@@ -2,7 +2,7 @@ package servletMVC;
 import java.util.*;
 
 
-public class StateAbbreviationMapper implements StateAbbreviationService {
+public class StateAbbreviationMapper implements SocialServicer {
   private Map<String,String> stateMap;
 
   private String[][] stateArray =
@@ -67,7 +67,7 @@ public class StateAbbreviationMapper implements StateAbbreviationService {
   }
 
   @Override
-  public String findAbbreviation(String stateName) {
+  public String FindSocial(String stateName) {
     return(stateMap.get(stateName.toUpperCase()));
   }
 }

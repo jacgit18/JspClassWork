@@ -14,9 +14,12 @@
 
 	<fieldset>
 		<legend>SSN # Finder</legend>
-		<form action="register">
-			Enter SSN #: <input type="text" name="firstName"><br> <input
-				type="submit" value="Search">
+		<form action="searchmysocial">
+			Enter SSN #: <input type="text" name="SSN"  value="${ssnInfo.SSN}" ><br>
+			<!-- 
+						Enter SSN #: <input type="text" name="SSN" value="${ssnInfo.SSN}"><br>  -->
+			
+			 <input type="submit" value="Find Student">
 		</form>
 	</fieldset>
 

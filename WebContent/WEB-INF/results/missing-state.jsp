@@ -8,8 +8,8 @@
 <body>
 <div align="center">
 <table class="title">
-  <tr><th>No State Entered</th></tr>
+  <tr><th>No SSN # Entered</th></tr>
 </table>
 <p/>
-<h1>You didn't enter a state. Go away and stop bothering us.</h1>
+<h1>You didn't enter a SSN. Go away and stop bothering us.</h1>
 </div></body></html>

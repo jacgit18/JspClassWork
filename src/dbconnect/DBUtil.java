@@ -2,6 +2,8 @@ package dbconnect;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 import javax.servlet.ServletException;
@@ -9,13 +11,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class DBUtil extends HttpServlet {
+import servletMVC.SocialServicer;
+
+public class DBUtil implements SocialServicer  {
 
 	private static PreparedStatement preparedStatement;
+//	private Map<String,String> ssnDBMap;
 
-//	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		response.setContentType("text/html");
-//	}
+	private static String MySocial ="";
+
+	 
+//	public String FindSocial(String SSN) {
+//	    return(ssnDBMap.get(SSN));
+//	  };
+	  
+	  public String FindSocial(String SSN) {
+		    return this.MySocial = SSN;
+		  };
+	  
+//		 @Override
+//			public String FindSocial(String SSN) {
+//			    return this.MySocial SSN;
+//
+//			  };
+
 
 	public static void main(String[] args) throws SQLException, ClassNotFoundException {
 		// Load the JDBC driver
@@ -53,15 +72,19 @@ public class DBUtil extends HttpServlet {
 
 //		String driver = request.getParameter("driver");
 
-		Scanner keyboard = new Scanner(System.in);
-
-		System.out.println("Enter SSN: ");
-		String ssn = keyboard.nextLine();
+//		Scanner keyboard = new Scanner(System.in);
+//
+//		System.out.println("Enter SSN: ");
+//		String ssn = keyboard.nextLine();
 		// System.out.println("Enter Course ID: ");
 		// String courseId = keyboard.nextLine();
+		
+		String MYSSN = MySocial;
 
+		
 		try {
-			preparedStatement.setString(1, ssn);
+//			preparedStatement.setString(1, "");
+			preparedStatement.setString(1,MYSSN );
 			// preparedStatement.setString(2, courseId);
 			ResultSet rset = preparedStatement.executeQuery();
 
@@ -73,6 +96,11 @@ public class DBUtil extends HttpServlet {
 
 				String title = rset.getString(4);
 				String grade = rset.getString(5);
+				
+//				  ssnDBMap = new HashMap<String,String>();
+//			    for(String[] state: DBStuff) {
+//			    	ssnDBMap.put(state[0].toUpperCase(), state[1]);
+//			    }
 
 				System.out.println(firstName + "Middle name is " + mi + "and last name is " + lastName
 						+ " his grade for the course " + title + " is an " + grade);
