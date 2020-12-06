@@ -47,12 +47,12 @@ private static PreparedStatement preparedStatement;
     
     System.out.println("Enter SSN: ");
     String ssn = keyboard.nextLine();
-    System.out.println("Enter Course ID: ");
-    String courseId = keyboard.nextLine();
+//    System.out.println("Enter Course ID: ");
+//    String courseId = keyboard.nextLine();
     
     try {
         preparedStatement.setString(1, ssn);
-        preparedStatement.setString(2, courseId);
+//        preparedStatement.setString(2, courseId);
         ResultSet rset = preparedStatement.executeQuery();
 
         if (rset.next()) {
