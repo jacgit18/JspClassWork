@@ -9,8 +9,8 @@
   
     
   <tag>
-    <name>HelloTag</name>
-    <tag-class>coreservlets.tags.HelloTag</tag-class>
+    <name>DBUtil</name>
+    <tag-class>dbconnect.DBUtil</tag-class>
     <body-content>scriptless</body-content>
      <attribute>
       <name>message</name>
@@ -18,76 +18,6 @@
     </attribute>
   </tag>
     
-  <tag>
-    <name>ColorTag</name>
-    <tag-class>coreservlets.tags.ColorTag</tag-class>
-    <body-content>scriptless</body-content>
-     <attribute>
-      <name>foregroundColor</name>
-      <required>true</required>
-    </attribute>
-      <attribute>
-      <name>backgroundColor</name>
-      <required>true</required>
-    </attribute>
-  </tag>
-  
-  
-  
-  <tag>
-    <description>Outputs 50-digit primes</description>
-    <name>simplePrime</name>
-    <tag-class>coreservlets.tags.SimplePrimeTag</tag-class>
-    <body-content>empty</body-content>
-  </tag>
-  
-  <tag>
-    <description>Outputs an N-digit prime</description>
-    <name>prime</name>
-    <tag-class>coreservlets.tags.PrimeTag</tag-class>
-    <body-content>empty</body-content>
-    <attribute>
-      <description>N (prime number length)</description>
-      <name>length</name>
-      <required>false</required>
-    </attribute>
-  </tag>
-  
-  <tag>
-    <description>Formats enclosed heading</description>
-    <name>heading</name>
-    <tag-class>coreservlets.tags.HeadingTag</tag-class>
-    <body-content>scriptless</body-content>
-    <attribute>
-      <name>align</name>
-      <required>true</required>
-    </attribute>
-    <attribute>
-      <name>bgColor</name>
-      <required>true</required>
-    </attribute>
-    <attribute>
-      <name>border</name>
-      <required>true</required>
-    </attribute>
-    <attribute>
-      <name>fgColor</name>
-      <required>true</required>
-    </attribute>
-    <attribute>
-      <name>font</name>
-      <required>true</required>
-    </attribute>
-    <attribute>
-      <name>size</name>
-      <required>true</required>
-    </attribute>
-  </tag>
-  
-  <tag>
-    <description>Conditionally outputs enclosed body</description>
-    <name>debug</name>
-    <tag-class>coreservlets.tags.DebugTag</tag-class>
-    <body-content>scriptless</body-content>
-  </tag>
+
+
 </taglib>

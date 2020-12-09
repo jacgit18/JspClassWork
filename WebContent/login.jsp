@@ -14,8 +14,8 @@
 
 	<fieldset>
 		<legend>SSN # Finder</legend>
-		<form action="searchmysocial">
-			Enter SSN #: <input type="text" name="SSN"  value="${ssnInfo.SSN}" ><br>
+		<form action="searchmysocial" Method="Post">
+			Enter SSN #: <input type="text" name="SSN"  ><br>
 			<!-- 
 						Enter SSN #: <input type="text" name="SSN" value="${ssnInfo.SSN}"><br>  -->
 			

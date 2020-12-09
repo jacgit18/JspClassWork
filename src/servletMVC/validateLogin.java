@@ -10,26 +10,33 @@ import dbconnect.DBUtil;
 @WebServlet("/searchmysocial")
 public class validateLogin extends HttpServlet {
 	
+	private DBUtil ssnDao;
 	
-  private DBUtil SSNPasser = new DBUtil();
+	public void init(){
+		ssnDao = new DBUtil();
+	}
   
   @Override
   public void doGet(HttpServletRequest request,
                     HttpServletResponse response)
       throws ServletException, IOException {
+	  
     String SSN = request.getParameter("SSN");
+    
     if (SSN == null) {
     	SSN = "";
     }
     SSN = SSN.trim();
     
 //    String stateAbbreviation = abbreviationMapper.FindSocial(SSN);
-    
-    String socialPasser = SSNPasser.FindSocial(SSN);
+
+//    String socialPasser = SSNPasser.FindSocial(SSN);
 
     
 //    SocialSEC ssnInfo = new SocialSEC(SSN, stateAbbreviation);
-    SocialSEC ssnInfo = new SocialSEC(SSN);
+    SocialSEC ssnInfo = new SocialSEC();
+    
+    ssnInfo.SetSSN(SSN);
 
     
     
@@ -38,13 +45,25 @@ public class validateLogin extends HttpServlet {
     String address;
     if (SSN.isEmpty()) {
       address = "/WEB-INF/results/missing-state.jsp";
-    } else if (socialPasser != null) {
+//    } else if (ssnInfo.getSSN() != null && ssnInfo.getSSN() == ssnDao.toString() ) {
+
+    } else if (ssnInfo.getSSN() != null) {
       address = "/WEB-INF/results/StudentFound.jsp";
     } else {
       address = "/WEB-INF/results/StudentNotFound.jsp";
     }
+    
+  
     RequestDispatcher dispatcher =
       request.getRequestDispatcher(address);
     dispatcher.forward(request, response);
   }
+  
+//	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		doPost(request, response);
+		 doGet(request, response);
+
+	}
 }
